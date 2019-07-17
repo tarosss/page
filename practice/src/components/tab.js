@@ -6,9 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
-import H from './horizontal.js'
-import Baseball from '../pages/baseball.js'
-
+import Baseball from '../Pages/baseball.js'
 function TabContainer(props) {
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -28,13 +26,11 @@ const useStyles = makeStyles(theme => ({
   },
   tabs:{
     display:'flex',
-    justifyContent:'space-around',
-    pudding:'70'
-
+    justifyContent:'center'
   }
 }));
 
-export default function SimpleTabs({tab1, tab2 , tab3}, props) {
+export default function SimpleTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -45,17 +41,17 @@ export default function SimpleTabs({tab1, tab2 , tab3}, props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Tabs value={value}
-        onChange={handleChange}
-        className={classes.tabs}>
-          <Tab label={tab1} />
-          <Tab label={tab2} />
-          <Tab label={tab3} />
+        <Tabs value={value} onChange={handleChange} className={classes.tabs}>
+          <Tab label="プロ野球" />
+          <Tab label='艦これ' />
+          <Tab label="プログラミング" />
+
+
         </Tabs>
       </AppBar>
-      {value === 0 && <TabContainer><Baseball/></TabContainer>}
-      {value === 1 && <TabContainer><H/></TabContainer>}
-      {value === 2 && <TabContainer>Item Three</TabContainer>}
+      {value === 0 && <TabContainer>{props.tab1}</TabContainer>}
+      {value === 1 && <TabContainer></TabContainer>}
+      {value === 2 && <TabContainer></TabContainer>}
     </div>
   );
 }

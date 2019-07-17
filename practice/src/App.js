@@ -1,19 +1,14 @@
-import React,{Component} from 'react';
+import React from 'react';
+import View from './Pages/View.js'
 
-import AppBar from './components/appbar.js'
-import H from './components/horizontal.js'
-
-
-
-class App extends Component{
-
+import Baseball from './Pages/baseball.js'
+class App extends React.Component {
   render(){
-    return(
-      <div>
-        <AppBar tab1='プロ野球' tab2='艦これ' tab3='プログラミング'/>
+    return (
+      <div className="App">
+        <View/>
       </div>
-    )
+    );
   }
 }
-
 export default App;
